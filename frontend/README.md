@@ -1,32 +1,32 @@
-# React + TypeScript + Vite
+# DriveStash: Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The React + TypeScript + Vite app for DriveStash. For the project overview, features and progress, see the [root README](../README.md).
 
-Currently, two official plugins are available:
+## Run it
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev     # http://localhost:5173
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Scripts
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Start the dev server with hot reload |
+| `npm run build` | Typecheck, then build for production into `dist/` |
+| `npm run lint` | Lint with oxlint |
+| `npm run preview` | Serve the production build locally |
+
+## Layout
+
+```text
+src/
+├── components/ui/  # Shared UI: Button, Input, Modal, ConfirmDialog, Dropdown, ItemDropdown, EmptyState, ProgressBar, Spinner
+├── pages/          # One component per route (Auth, HomePage, Drive, SharedWithMe, SharedFile, Trash)
+├── config/         # API client config
+├── context/        # React context providers
+├── hooks/          # Custom hooks
+├── App.tsx         # Routes
+└── main.tsx        # Entry point (BrowserRouter)
+```
